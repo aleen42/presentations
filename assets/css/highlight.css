@@ -9,6 +9,7 @@ section.present code {
 section.present pre,
 section.present code {
   color: var(--color-text-primary);
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 section.present pre .hljs-comment,
 section.present code .hljs-comment,

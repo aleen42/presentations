@@ -1,0 +1,102 @@
+<style>
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        pointer-events: none;
+        background-color: rgba(0, 0, 0, 0.65);
+        backdrop-filter: brightness(0.35);
+        z-index: -1;
+    }
+
+    #scene {
+        z-index: -2;
+        position: absolute;
+    }
+
+    .slides {
+        background: rgba(20, 20, 20, 0.35);
+        border-radius: 10px;
+        box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(25px) brightness(2);
+    }
+
+    .code-wrapper {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .code-wrapper code {
+        background-color: transparent !important;
+        max-height: 90% !important;
+    }
+
+    section.stack.present .present {
+        transform: scale(0.95);
+    }
+
+    blockquote {
+        text-align: left !important;
+        padding: 1em !important;
+        width: 90% !important;
+        font-size: 20px;
+        box-sizing: border-box;
+    }
+
+    blockquote p {
+        line-height: 2em !important;
+        margin: 14px 0 !important;
+    }
+
+    :root {
+        --r-selection-background-color: var(--r-link-color) !important;
+    }
+</style>
+<script>
+    var options = {
+        width    : 1366,
+        height   : 768,
+        maxScale : 1.05
+    };
+</script>
+<body data-theme=moon data-color-mode=dark>
+  <canvas id="scene"></canvas>
+  <script src="js/vendors/three.min.js"></script>
+  <script src="js/vendors/TweenMax.min.js"></script>
+  <script src="js/tubes.js"></script>
+  <img style="position:absolute; left: 20px; bottom: 20px; cursor: pointer; z-index: 99" onclick="window.open('https://github.com/aleen42/presentations')" class="logo" src="./logo.png" />
+</body>
+<script>
+  setTimeout(function () {
+      Reveal.addEventListener('demo', function () {
+          document.querySelector('.input').addEventListener('paste', e => {
+              var clipboardData = e.clipboardData || window.clipboardData;
+              var code = [
+                  document.querySelector('.output:nth-child(1) code'),
+                  document.querySelector('.output:nth-child(2) code')
+              ];
+              var highlight = Reveal.getPlugin('highlight');
+              code[0].innerHTML = escape(clipboardData.getData('text/html'));
+              highlight.highlightBlock(code[0]);
+              code[1].innerHTML = escape(JSON.stringify(Array.from(clipboardData.files).map(function (f) {
+                  return {
+                      'lastModified'     : f.lastModified,
+                      'lastModifiedDate' : f.lastModifiedDate,
+                      'name'             : f.name,
+                      'size'             : f.size,
+                      'type'             : f.type
+                  };
+              }), null, 2));
+              highlight.highlightBlock(code[1]);
+
+              function escape(str) {
+                  return (str || '').replace(/&/g, '&amp;').replace(/>/g, '&gt;')
+                      .replace(/</g, '&lt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+              }
+          });
+      });
+  })
+</script>

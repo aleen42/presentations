@@ -2,6 +2,8 @@
 
 A list of personal presentations based on [**reveal.js**](https://github.com/hakimel/reveal.js).
 
+- [**editor**](https://ppt.aleen42.com/presentations/editor) (read as [markdown](./presentations/editor/layout.md))
+
 ### :fuelpump: How to contribute
 
 Have an idea? Found a bug? See [how to contribute](https://aleen42.gitbooks.io/personalwiki/content/contribution.html).

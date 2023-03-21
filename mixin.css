@@ -1,0 +1,70 @@
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+.fs-30 {
+    font-size: 30px;
+}
+
+.f-db {
+    display: block;
+}
+
+.f-dbi {
+    display: inline-block;
+}
+
+.f-mgt {
+    margin-top: 0.5em !important;
+}
+
+.f-mgb {
+    margin-bottom: 0.5em !important;
+}
+
+.f-mgr {
+    margin-right: 0.5em !important;
+}
+
+.f-vam {
+    vertical-align: middle;
+}
+
+.ls-none li {
+    list-style: none;
+}
+
+.op-5 {
+    opacity: 0.5;
+}
+
+/** compressed table */
+.compressed-table {
+    font-size: 22px;
+    text-align: left;
+    display: inline-block;
+}
+
+.compressed-table th {
+    vertical-align: top;
+}
+
+.compressed-table th:not(:first-child), .compressed-table td:not(:first-child) {
+    border-left: 1px solid;
+}
+
+.compressed-table ul {
+    padding-left: 0;
+}
