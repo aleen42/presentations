@@ -1,0 +1,89 @@
+@import "light.css";
+@import "dark.css";
+section.present pre {
+  background-color: var(--color-bg-tertiary);
+}
+section.present code {
+  background-color: var(--color-markdown-code-bg);
+}
+section.present pre,
+section.present code {
+  color: var(--color-text-primary);
+}
+section.present pre .hljs-comment,
+section.present code .hljs-comment,
+section.present pre .hljs-quote,
+section.present code .hljs-quote {
+  color: var(--color-prettylights-syntax-comment);
+  opacity: 0.5;
+}
+section.present pre .hljs-variable,
+section.present code .hljs-variable,
+section.present pre .hljs-template-variable,
+section.present code .hljs-template-variable,
+section.present pre .hljs-selector-id,
+section.present code .hljs-selector-id,
+section.present pre .hljs-selector-class,
+section.present code .hljs-selector-class,
+section.present pre .hljs-regexp,
+section.present code .hljs-regexp,
+section.present pre .hljs-deletion,
+section.present code .hljs-deletion,
+section.present pre .hljs-keyword,
+section.present code .hljs-keyword,
+section.present pre .hljs-selector-tag,
+section.present code .hljs-selector-tag {
+  color: var(--color-prettylights-syntax-keyword);
+}
+section.present pre .hljs-name,
+section.present code .hljs-name {
+  color: var(--color-prettylights-syntax-entity-tag);
+}
+section.present pre .hljs-attr,
+section.present code .hljs-attr,
+section.present pre .hljs-attribute,
+section.present code .hljs-attribute,
+section.present pre .hljs-literal,
+section.present code .hljs-literal,
+section.present pre .hljs-number,
+section.present code .hljs-number,
+section.present pre .hljs-property,
+section.present code .hljs-property {
+  color: var(--color-prettylights-syntax-constant);
+}
+section.present pre .hljs-string,
+section.present code .hljs-string,
+section.present pre .hljs-symbol,
+section.present code .hljs-symbol,
+section.present pre .hljs-bullet,
+section.present code .hljs-bullet,
+section.present pre .hljs-addition,
+section.present code .hljs-addition {
+  color: var(--color-prettylights-syntax-string);
+}
+section.present pre .hljs-title,
+section.present code .hljs-title,
+section.present pre .hljs-section,
+section.present code .hljs-section,
+section.present pre .hljs-built_in,
+section.present code .hljs-built_in {
+  color: var(--color-prettylights-syntax-entity);
+}
+section.present pre .hljs-title.class_,
+section.present code .hljs-title.class_ {
+  color: var(--color-prettylights-syntax-variable);
+}
+section.present pre .hljs,
+section.present code .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+section.present pre .hljs-emphasis,
+section.present code .hljs-emphasis {
+  font-style: italic;
+}
+section.present pre .hljs-strong,
+section.present code .hljs-strong {
+  font-weight: bold;
+}

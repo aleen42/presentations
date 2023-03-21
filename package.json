@@ -1,0 +1,30 @@
+{
+  "name": "presentations",
+  "version": "1.0.0",
+  "description": "A list of personal presentations",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node ./build.js --watch",
+    "build": "node ./build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleen42/presentations.git"
+  },
+  "keywords": [
+    "presentations"
+  ],
+  "author": "Aleen <aleen42@vip.qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aleen42/presentations/issues"
+  },
+  "homepage": "https://github.com/aleen42/presentations#readme",
+  "dependencies": {
+    "reveal.js": "hakimel/reveal.js"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
