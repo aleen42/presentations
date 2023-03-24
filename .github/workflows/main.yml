@@ -1,0 +1,31 @@
+name: Presentations
+on:
+  push:
+    branches: [main]
+concurrency: building
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Build
+        run: |
+          npm version
+          npm i --no-save
+          npm run build
+          # only deploy necessary artifacts
+          rm -r .github node_modules
+          rm .gitignore build.js
+          find presentations -name '*.md' -o -name 'layout.html' -type f -exec rm {} +
+          # remove <div> and <section> so that jekyll can parse the markdown correctly
+          sed -i '' -E 's/<(section|div)[^>]*>//g' presentations/**/layout.md
+          sed -i '' -E 's/<\/(section|div)>//g' presentations/**/layout.md
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          single-commit: true
+          branch: gh-pages
+          folder: .
