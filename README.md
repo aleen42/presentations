@@ -3,6 +3,7 @@
 A list of personal presentations based on [**reveal.js**](https://github.com/hakimel/reveal.js).
 
 - [**editor**](https://ppt.aleen42.com/presentations/editor) (read as [markdown](./presentations/editor/layout.md))
+  - A [demo](./presentations/editor/clipboard.html) for capturing data from the `clipboardData`
 
 ### :fuelpump: How to contribute
 

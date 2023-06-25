@@ -1,0 +1,46 @@
+<style>
+    .container { display: flex; }
+    .input { font-size: 20px; overflow: auto; height: 640px; margin: 20px; background: #fff }
+    .output { font-size: 0.8em; height: 300px; margin: 20px 20px 20px 0; list-style: none; background: rgba(255, 255, 255, 0.05); }
+    .output pre { width: 100%; height: 100%; margin: 0;overflow: auto }
+    .input, .output { padding: 10px; text-align: left; position: relative; flex: 1; width: 600px; border: 2px dashed }
+    .input:focus { outline: none }
+
+    .input::before { content: 'pasted'; left: 10px }
+    .input::before, .output:nth-child(1)::before, .output:nth-child(2)::before {
+        position: absolute; bottom: 15px; font-size: 20px; background: rgba(255, 255, 255, 0.05); padding: 5px
+    }
+    .output:nth-child(1)::before { content: 'rawHTML'; right: 32px }
+    .output:nth-child(2)::before { content: 'files'; right: 32px }
+</style>
+<div class="container">
+    <div class="input" contenteditable></div>
+    <ul style="padding: 0; margin: 0">
+        <li class="output"><pre class="html code-wrapper"><code></code></pre></li>
+        <li class="output"><pre class="json code-wrapper"><code></code></pre></li>
+    </ul>
+</div>
+<script>
+    document.querySelector('.input').addEventListener('paste', e => {
+        var clipboardData = e.clipboardData || window.clipboardData;
+        var code = [
+            document.querySelector('.output:nth-child(1) code'),
+            document.querySelector('.output:nth-child(2) code')
+        ];
+        code[0].innerHTML = escape(clipboardData.getData('text/html'));
+        code[1].innerHTML = escape(JSON.stringify(Array.from(clipboardData.files).map(function (f) {
+            return {
+                'lastModified'     : f.lastModified,
+                'lastModifiedDate' : f.lastModifiedDate,
+                'name'             : f.name,
+                'size'             : f.size,
+                'type'             : f.type
+            };
+        }), null, 2));
+
+        function escape(str) {
+            return (str || '').replace(/&/g, '&amp;').replace(/>/g, '&gt;')
+                .replace(/</g, '&lt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+    })
+</script>
